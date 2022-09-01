@@ -1,0 +1,57 @@
+<!-- *ngIg vai fazer com que o conteúdo do paragráfo apareça caso seja true ou não se for false -->
+<!-- passando o valor de "condition" definido no componente .ts -->
+<!-- se condition for falso ele chama o elseBlock -->
+<p *ngIf="condition; else elseBlock">True</p>
+
+<!-- vai executar quando o condition for falso como definido no *ngIf -->
+<ng-template #elseBlock>
+    <p>
+        False
+    </p>
+</ng-template>
+
+<hr>
+
+<!-- conditionClick foi no definido no componente .ts como true -->
+<p *ngIf="conditionClick">
+    True
+</p>
+
+<p *ngIf="!conditionClick">
+    False
+</p>
+
+<!-- vai rodar a função onClick ao clicar no botão-->
+<button (click)="onClick()">Clicar</button>
+
+<hr>
+
+<!-- *ngFor: vai iterar valores de um array no html -->
+<!-- let variável que ele vai receber como iteração -->
+<!-- "let item of lis": para cada item de list -->
+<!-- "let i  = index" vai pegar o índice de cada elemento-->
+<!-- onClickEventList($event): evento de click que vai receber o índice do elemento que estou clicando-->
+<ul>
+    <li *ngFor="let item of list; let i = index;" (click)="onClickEventList(i)">
+        [{{i}}] - {{item.nome}} - idade = {{item.idade}}
+    </li>
+</ul>
+
+<button (click)="onClickAddList()">Add</button>
+
+<hr>
+
+<input type="text" [(ngModel)]="nome">
+
+<!-- [ngSwitch]: vai buscar pelo SwitchCase que foi definido com este nome -->
+<div [ngSwitch]="nome">
+    <p *ngSwitchCase="'João'">
+        João
+    </p>
+    <p *ngSwitchCase="'Marcos'">
+        Marcos
+    </p>
+    <p *ngSwitchDefault>
+        Deu ruim sua busca.
+    </p>
+</div>

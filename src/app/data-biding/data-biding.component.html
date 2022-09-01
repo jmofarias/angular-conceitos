@@ -1,0 +1,46 @@
+<br>
+<hr>
+
+<h2>Interpolartions</h2>
+
+<!-- pegando o valor da variavel nome que foi definido no arquivo .ts -->
+<p>{{nome}} tem {{idade}} anos!</p>
+
+<p>{{nome}} tem mais de 22 anos?</p>
+
+<p>{{idade > 22}}</p>
+
+<hr>
+
+<h2>Property Binding</h2>
+
+<!-- [disabled]: quer dizer que irei buscar no meu arquivo .ts o valor da variável checkedDisabled -->
+<button [disabled]="checkedDisabled">Button</button>
+
+<br>
+<br>
+<img [src]="imgSrc" [title]="imgTitle" [alt]="imgTitle">
+
+<br>
+<br>
+<hr>
+<h2>Event Binding</h2>
+
+<button (click)="alertaInfo($event)">Evento</button>
+<!-- usando evento de mousemove para reconhecer o posicionamento do mouse dentro deste elemento-->
+<div (mousemove)="mouseMoveTeste($event)" style="background: aqua; width: 300px; height: 300px"></div>
+
+<!-- acessando os valores do position que está no nosso componente .ts -->
+{{position.x}} - {{position.y}}
+
+<br>
+<br>
+<hr>
+<h2>Two-hay binding</h2>
+
+<!-- o ngModel é que vai falar para o nosso input que ela será iniciada com a variável nome, e ao ser alterado ele atualiza a nossa variável nome -->
+<input [(ngModel)]="nome">
+{{nome}}
+
+<br>
+<br>
